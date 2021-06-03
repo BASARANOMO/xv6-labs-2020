@@ -43,7 +43,7 @@ main(int argc, char *argv[])
           fprintf(2, "usage: pingpong child--->parent read error!\n");
           exit(1);
       }
-      exit(0);
   }
+  wait((int *) 0);
   exit(0);
 }
