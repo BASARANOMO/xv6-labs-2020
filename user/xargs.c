@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
                 exit(0);
             if (c == ' ' || c == '\n')
             {
-                buf[buf_cnt++] = 0; // current arg ends
+                buf[buf_cnt++] = 0; // current arg ends (char list ends with 0)
                 _argv[argv_cnt++] = &buf[arg_begin];
                 // printf("%s %s %d %d \n", buf, &buf[arg_begin], arg_begin, buf_cnt);
                 arg_begin = buf_cnt;
