@@ -95,3 +95,16 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// trace system call
+uint64
+sys_trace(void)
+{
+  uint mask;
+  // argint retrieves the n'th system call argument from the trap frame as an integer
+  if (argint(0, (int*)&mask) < 0)
+    return -1;
+  struct proc *p = myproc();
+  p->trace_mask |= mask;
+  return 0;
+}

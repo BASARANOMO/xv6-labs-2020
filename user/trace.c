@@ -14,11 +14,13 @@ main(int argc, char *argv[])
     exit(1);
   }
 
+  // trace system call
   if (trace(atoi(argv[1])) < 0) {
     fprintf(2, "%s: trace failed\n", argv[0]);
     exit(1);
   }
   
+  // Arguments for the proc to be traced
   for(i = 2; i < argc && i < MAXARG; i++){
     nargv[i-2] = argv[i];
   }
